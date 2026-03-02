@@ -1,0 +1,47 @@
+package data.models;
+
+public class Visitor {
+    private int id;
+    private String name;
+    private String purposeOfComing;
+    private String phoneNumber;
+
+    public Visitor(int id, String phoneNumber, String purposeOfComing, String name) {
+        this.id = id;
+        this.phoneNumber = phoneNumber;
+        this.purposeOfComing = purposeOfComing;
+        this.name = name;
+    }
+
+    public String getPurposeOfComing() {
+        return purposeOfComing;
+    }
+
+    public void setPurposeOfComing(String purposeOfComing) {
+        this.purposeOfComing = purposeOfComing;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
