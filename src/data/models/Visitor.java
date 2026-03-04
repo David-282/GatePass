@@ -6,12 +6,6 @@ public class Visitor {
     private String purposeOfComing;
     private String phoneNumber;
 
-    public Visitor(int id, String phoneNumber, String purposeOfComing, String name) {
-        this.id = id;
-        this.phoneNumber = phoneNumber;
-        this.purposeOfComing = purposeOfComing;
-        this.name = name;
-    }
 
     public String getPurposeOfComing() {
         return purposeOfComing;

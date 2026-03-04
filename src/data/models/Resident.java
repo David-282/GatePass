@@ -6,12 +6,6 @@ public class Resident {
     private String phoneNumber;
     private String  houseAddress;
 
-    public Resident(String name, String id, String phoneNumber, String houseAddress) {
-        this.name = name;
-        this.id = id;
-        this.phoneNumber = phoneNumber;
-        this.houseAddress = houseAddress;
-    }
 
     public String getName() {
         return name;
@@ -21,11 +15,11 @@ public class Resident {
         this.name = name;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

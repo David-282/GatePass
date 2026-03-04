@@ -10,14 +10,7 @@ public class GatePass {
     private LocalDateTime expirationDate;
     private boolean isValid = true;
 
-    public GatePass(int id, boolean isValid, LocalDateTime expirationDate, LocalDateTime createdAt, int visitorsId, int residentId) {
-        this.id = id;
-        this.isValid = isValid;
-        this.expirationDate = expirationDate;
-        this.createdAt = createdAt;
-        this.visitorsId = visitorsId;
-        this.residentId = residentId;
-    }
+
 
     public int getId() {
         return id;

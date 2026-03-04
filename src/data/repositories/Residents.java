@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Residents implements ResidentRepo {
 
-    private final List<Resident> residents = new ArrayList<>();
+    private  List<Resident> residents = new ArrayList<>();
     private int residentId = 1;
 
     @Override
@@ -26,19 +26,15 @@ public class Residents implements ResidentRepo {
 
     @Override
     public Resident save(Resident resident) {
-        if (resident.getId() == 0) {
+        Resident newResident = findById(resident.getId());
+
+        if (newResident == null){
             resident.setId(residentId++);
             residents.add(resident);
-        } else {
-            Resident existing = findById(resident.getId());
-            if (existing != null) {
-                residents.set(residents.indexOf(existing), resident);
-            } else {
-                residents.add(resident);
-            }
         }
         return resident;
     }
+
 
     @Override
     public void delete(Resident resident) {
@@ -65,7 +61,6 @@ public class Residents implements ResidentRepo {
         residents.clear();
     }
 
-    // Note: not declared in ResidentRepo interface — consider adding it
     public int count() {
         return residents.size();
     }

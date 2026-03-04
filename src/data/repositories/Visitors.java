@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Visitors implements VisitorRepo {
     private List<Visitor> visitors = new ArrayList<>();
-    private int nextId = 1;
+    private int visitorId = 1;
 
     @Override
     public List<Visitor> findAll() {
@@ -23,20 +23,16 @@ public class Visitors implements VisitorRepo {
     }
 
     @Override
-    public void save(Visitor visitor) {
-        if (visitor.getId() == 0) {
-            visitor.setId(nextId++);
+    public Visitor save(Visitor visitor) {
+        Visitor newVisitor = findById (visitor.getId());
+
+        if (newVisitor == null){
+            visitor.setId(visitorId++);
             visitors.add(visitor);
-        } else {
-            Visitor existing = findById(visitor.getId());
-            if (existing != null) {
-                int index = visitors.indexOf(existing);
-                visitors.set(index, visitor);
-            } else {
-                visitors.add(visitor);
-            }
         }
+        return visitor;
     }
+
 
     @Override
     public void delete(Visitor visitor) {

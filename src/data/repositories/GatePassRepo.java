@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface GatePassRepo {
     List<GatePass> findAll();
-    GatePass findById(String id);
+    GatePass findById(int id);
     GatePass save(GatePass pass);
     void delete(GatePass pass);
     void deleteById(int id);
