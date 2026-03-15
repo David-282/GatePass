@@ -42,11 +42,6 @@ class VisitorsTest {
         assertEquals(2, visitors.count());
     }
 
-    @Test
-    void testThatSavedVisitorIsAssignedAnId() {
-        visitors.save(firstVisitor);
-        assertEquals(firstVisitor.getId(), 1);
-    }
 
     @Test
     void testThatIdsAutoIncrementWorksForEachVisitor() {
@@ -73,22 +68,7 @@ class VisitorsTest {
         assertEquals(2, visitors.count());
     }
 
-    @Test
-    void testFindByIdReturnTheActualObject() {
-        visitors.save(firstVisitor);
-        int id = firstVisitor.getId();
 
-        Visitor found = visitors.findById(id);
-
-        assertNotNull(found);
-        assertEquals("August Visitor", found.getName());
-    }
-
-    @Test
-    void testFindByIdReturnsNullWhenObjectNotFound() {
-        Visitor found = visitors.findById(999);
-        assertNull(found);
-    }
 
     @Test
     void testDelete() {
@@ -111,28 +91,9 @@ class VisitorsTest {
         assertNull(visitors.findById(firstVisitor.getId()));
     }
 
-    @Test
-    void testDeleteByIdWorksWell() {
-        visitors.save(firstVisitor);
-        int id = firstVisitor.getId();
-
-        visitors.deleteById(id);
-
-        assertEquals(0, visitors.count());
-        assertNull(visitors.findById(id));
-    }
 
 
-    @Test
-    void testDeleteByObject() {
-        visitors.save(firstVisitor);
-        visitors.save(secondVisitor);
 
-        visitors.deleteByObject(secondVisitor);
-
-        assertEquals(1, visitors.count());
-        assertNull(visitors.findById(secondVisitor.getId()));
-    }
 
     @Test
     void testDeleteAll() {

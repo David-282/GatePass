@@ -3,37 +3,55 @@ package data.models;
 import java.time.LocalDateTime;
 
 public class GatePass {
-    private int id;
-    private int residentId;
-    private int visitorsId;
+    private String id;
+    private String residentId;
     private LocalDateTime createdAt =  LocalDateTime.now();
     private LocalDateTime expirationDate;
     private boolean isValid = true;
+    private String code;
+    private Visitor visitor;
+    private Type passType;
 
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public Type getPassType() {
+        return passType;
+    }
+
+    public void setPassType(Type passType) {
+        this.passType = passType;
+    }
+
+    public Visitor getVisitor() {
+        return visitor;
+    }
+
+    public void setVisitor(Visitor visitor) {
+        this.visitor = visitor;
+    }
+
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getResidentId() {
+    public String getResidentId() {
         return residentId;
     }
 
-    public void setResidentId(int residentId) {
+    public void setResidentId(String residentId) {
         this.residentId = residentId;
-    }
-
-    public int getVisitorsId() {
-        return visitorsId;
-    }
-
-    public void setVisitorsId(int visitorsId) {
-        this.visitorsId = visitorsId;
     }
 
     public LocalDateTime getCreatedAt() {

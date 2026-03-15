@@ -1,26 +1,54 @@
 package data.models;
 
+import java.time.LocalDateTime;
+
 public class Resident {
     private String name;
-    private int id;
+    private String id;
     private String phoneNumber;
     private String  houseAddress;
-
+    private LocalDateTime dateRegistered;
+    private boolean isEnabled = true;
+    private String email;
 
     public String getName() {
         return name;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getDateRegistered() {
+        return dateRegistered;
+    }
+
+    public void setDateRegistered(LocalDateTime dateRegistered) {
+        this.dateRegistered = dateRegistered;
+    }
+
+    public boolean isEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getPhoneNumber() {

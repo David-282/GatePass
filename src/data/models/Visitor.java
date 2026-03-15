@@ -1,7 +1,7 @@
 package data.models;
 
 public class Visitor {
-    private int id;
+    private String id;
     private String name;
     private String purposeOfComing;
     private String phoneNumber;
@@ -23,11 +23,11 @@ public class Visitor {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -1,13 +1,13 @@
 package data.repositories;
 import data.models.GatePass;
-import data.models.Visitor;
+import utils.RandomCodeGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GatePasses implements GatePassRepo {
+public class GatePasses implements GatePassRepository {
     private List<GatePass> gatePasses = new ArrayList<>();
-    private int gatePassId = 1;
+
 
     @Override
     public List<GatePass> findAll() {
@@ -15,9 +15,9 @@ public class GatePasses implements GatePassRepo {
     }
 
     @Override
-    public GatePass findById(int id) {
+    public GatePass findById(String id) {
         for (GatePass pass : gatePasses) {
-            if (pass.getId() == id) {
+            if (pass.getId().equals(id)) {
                 return pass;
             }
         }
@@ -29,7 +29,7 @@ public class GatePasses implements GatePassRepo {
         GatePass newPass = findById (gatePass.getId());
 
         if (newPass == null){
-            gatePass.setId(gatePassId++);
+            gatePass.setId(RandomCodeGenerator.codeGenerator());
             gatePasses.add(gatePass);
         }
         return gatePass;
@@ -41,21 +41,39 @@ public class GatePasses implements GatePassRepo {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(String id) {
+
         GatePass pass = findById(id);
         if (pass != null) {
             gatePasses.remove(pass);
         }
-    }
 
-    @Override
-    public void deleteByObject(GatePass pass) {
-        delete(pass);
     }
 
     @Override
     public void deleteAll() {
         gatePasses.clear();
+    }
+
+    @Override
+    public GatePass findByCode(String code) {
+        for(GatePass gatePass : gatePasses){
+            if (gatePass.getCode().equals(code)){
+                return  gatePass;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public GatePass findByPhoneNumber(String phoneNumber) {
+
+        for (GatePass pass : gatePasses) {
+            if (pass.get .equals(phoneNumber)) {
+                return pass;
+            }
+        }
+        return null;
     }
 
     public int count() {

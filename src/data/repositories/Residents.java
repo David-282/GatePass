@@ -1,23 +1,26 @@
 package data.repositories;
 
 import data.models.Resident;
+import utils.RandomCodeGenerator;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Residents implements ResidentRepo {
+public class Residents implements ResidentRepository {
 
     private  List<Resident> residents = new ArrayList<>();
-    private int residentId = 1;
 
     @Override
     public List<Resident> findAll() {
         return new ArrayList<>(residents);
     }
 
+
+
     @Override
-    public Resident findById(int id) {
+    public Resident findById(String id) {
         for (Resident resident : residents) {
-            if (resident.getId() == id) {
+            if (resident.getId().equals(id)) {
                 return resident;
             }
         }
@@ -29,20 +32,16 @@ public class Residents implements ResidentRepo {
         Resident newResident = findById(resident.getId());
 
         if (newResident == null){
-            resident.setId(residentId++);
+            resident.setId(RandomCodeGenerator.codeGenerator());
             residents.add(resident);
         }
         return resident;
     }
 
 
-    @Override
-    public void delete(Resident resident) {
-        residents.remove(resident);
-    }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(String id) {
         Resident toRemove = findById(id);
         boolean found = toRemove != null;
 
@@ -51,14 +50,26 @@ public class Residents implements ResidentRepo {
         }
     }
 
+
     @Override
-    public void deleteByObject(Resident resident) {
-        delete(resident);
+    public void delete(Resident resident) {
+
+        residents.remove(resident);
     }
 
     @Override
     public void deleteAll() {
         residents.clear();
+    }
+
+    @Override
+    public Resident findByPhoneNumber(String phoneNumber) {
+        for (Resident resident: residents){
+            if (resident.getPhoneNumber().equals(phoneNumber)){
+                return resident;
+            }
+        }
+        return null;
     }
 
     public int count() {

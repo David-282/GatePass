@@ -4,15 +4,14 @@ import data.models.Resident;
 
 import java.util.List;
 
-public interface ResidentRepo {
+public interface ResidentRepository {
         List<Resident> findAll();
-        Resident findById(int id);
+        Resident findById(String id);
         Resident save(Resident resident);
         void delete(Resident resident);
-        void deleteById(int id);
-        void deleteByObject(Resident resident);
+        void deleteById(String id);
         void deleteAll();
 
 
-
-    }
+        Resident findByPhoneNumber(String phoneNumber);
+}
