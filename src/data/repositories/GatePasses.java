@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GatePasses implements GatePassRepository {
-    private List<GatePass> gatePasses = new ArrayList<>();
+    private static List<GatePass> gatePasses = new ArrayList<>();
 
 
     @Override
@@ -65,16 +65,16 @@ public class GatePasses implements GatePassRepository {
         return null;
     }
 
-    @Override
-    public GatePass findByPhoneNumber(String phoneNumber) {
-
-        for (GatePass pass : gatePasses) {
-            if (pass.get .equals(phoneNumber)) {
-                return pass;
-            }
-        }
-        return null;
-    }
+//    @Override
+//    public GatePass findByPhoneNumber(String phoneNumber) {
+//
+//        for (GatePass pass : gatePasses) {
+//            if (pass.getId().equals(phoneNumber)) {
+//                return pass;
+//            }
+//        }
+//        return null;
+//    }
 
     public int count() {
         return gatePasses.size();

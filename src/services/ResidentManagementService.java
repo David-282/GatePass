@@ -7,15 +7,12 @@ import dtos.requests.OnboardResidentRequest;
 import dtos.responses.OnboardResidentResponse;
 import exceptions.ResidentAlreadyRegisteredException;
 import exceptions.ResidentDoesNotExistException;
-import utils.Mapper;
-import utils.RandomCodeGenerator;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import static utils.Mapper.map;
 
-public class ResidentService {
+public class ResidentManagementService {
 
     private ResidentRepository residentRepository = new Residents();
 

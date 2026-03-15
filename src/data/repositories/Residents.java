@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Residents implements ResidentRepository {
 
-    private  List<Resident> residents = new ArrayList<>();
+    private  static List<Resident> residents = new ArrayList<>();
 
     @Override
     public List<Resident> findAll() {

@@ -20,7 +20,7 @@ import java.util.List;
 import static utils.Mapper.extendCodeMap;
 import static utils.Mapper.map;
 
-public class GatePassServices {
+public class GateAccessServices {
 
     private ResidentRepository residentRepository = new Residents();
     private GatePassRepository gatePassRepository = new GatePasses();
