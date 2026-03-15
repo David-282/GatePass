@@ -1,6 +1,8 @@
 package services;
 
 import data.models.GatePass;
+import data.repositories.GatePasses;
+import data.repositories.Residents;
 import dtos.requests.*;
 import dtos.responses.*;
 import exceptions.InvalidGatePassException;
@@ -23,6 +25,9 @@ class GatePassServicesTest {
 
     @BeforeEach
     void startWithThis() {
+        new Residents().deleteAll();
+        new GatePasses().deleteAll();
+
         gatePassServices = new GateAccessServices();
         residentService = new ResidentManagementService();
 

@@ -1,5 +1,6 @@
 package services;
 
+import data.repositories.Residents;
 import dtos.requests.OnboardResidentRequest;
 import dtos.responses.OnboardResidentResponse;
 import exceptions.ResidentAlreadyRegisteredException;
@@ -20,6 +21,7 @@ class ResidentServiceTest {
 
     @BeforeEach
     void startWithThis() {
+        new Residents().deleteAll();
         residentService = new ResidentManagementService();
 
         firstRequest = new OnboardResidentRequest();
